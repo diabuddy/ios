@@ -13,6 +13,10 @@
 		275F2DDE2094BA18004B3AC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 275F2DDD2094BA18004B3AC6 /* Assets.xcassets */; };
 		275F2DE12094BA18004B3AC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275F2DDF2094BA18004B3AC6 /* LaunchScreen.storyboard */; };
 		275F2DE92094BAAA004B3AC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 275F2DE82094BAAA004B3AC6 /* GoogleService-Info.plist */; };
+		27B3BCC42094FCB500409E6E /* NewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3BCC32094FCB500409E6E /* NewReminderViewController.swift */; };
+		27C2F4792094E29500DE69EE /* RemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2F4782094E29500DE69EE /* RemindersTableViewController.swift */; };
+		27C2F47B2094E32400DE69EE /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2F47A2094E32400DE69EE /* ReminderTableViewCell.swift */; };
+		27C2F47D2094E49100DE69EE /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2F47C2094E49100DE69EE /* Reminder.swift */; };
 		BFF0E9F78B7055F500B76294 /* Pods_diabuddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4F084014545FE33C3DC440 /* Pods_diabuddy.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +29,10 @@
 		275F2DE02094BA18004B3AC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		275F2DE22094BA18004B3AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		275F2DE82094BAAA004B3AC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		27B3BCC32094FCB500409E6E /* NewReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderViewController.swift; sourceTree = "<group>"; };
+		27C2F4782094E29500DE69EE /* RemindersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableViewController.swift; sourceTree = "<group>"; };
+		27C2F47A2094E32400DE69EE /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
+		27C2F47C2094E49100DE69EE /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		9B07D4AD898E1A3FD998BDB3 /* Pods-diabuddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diabuddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-diabuddy/Pods-diabuddy.release.xcconfig"; sourceTree = "<group>"; };
 		BA4F084014545FE33C3DC440 /* Pods_diabuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_diabuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F25502FA8F3CD9398966F1 /* Pods-diabuddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diabuddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-diabuddy/Pods-diabuddy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				275F2DDA2094BA16004B3AC6 /* Main.storyboard */,
+				27C2F47A2094E32400DE69EE /* ReminderTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -73,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				271E9DFF2094BCEF001EA8DC /* LoginViewController.swift */,
+				27C2F4782094E29500DE69EE /* RemindersTableViewController.swift */,
+				27B3BCC32094FCB500409E6E /* NewReminderViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -100,11 +111,20 @@
 			children = (
 				271E9E012094BCF4001EA8DC /* View Controllers */,
 				271E9DFE2094BCD6001EA8DC /* Views */,
+				27C2F47E2094E49800DE69EE /* Model */,
 				271E9DFD2094BCC7001EA8DC /* Support */,
 				275F2DE22094BA18004B3AC6 /* Info.plist */,
 				275F2DE82094BAAA004B3AC6 /* GoogleService-Info.plist */,
 			);
 			path = diabuddy;
+			sourceTree = "<group>";
+		};
+		27C2F47E2094E49800DE69EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				27C2F47C2094E49100DE69EE /* Reminder.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		6A28C1EAFC5EEB7E77E0BA6F /* Frameworks */ = {
@@ -237,7 +257,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				271E9E002094BCEF001EA8DC /* LoginViewController.swift in Sources */,
+				27B3BCC42094FCB500409E6E /* NewReminderViewController.swift in Sources */,
+				27C2F4792094E29500DE69EE /* RemindersTableViewController.swift in Sources */,
 				275F2DD72094BA16004B3AC6 /* AppDelegate.swift in Sources */,
+				27C2F47B2094E32400DE69EE /* ReminderTableViewCell.swift in Sources */,
+				27C2F47D2094E49100DE69EE /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

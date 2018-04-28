@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +30,7 @@
                                         </constraints>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="name"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
                                                 <real key="value" value="0.69999999999999996"/>
@@ -63,7 +64,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="85i-V8-Dae" customClass="IsaoTextField" customModule="TextFieldEffects">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="85i-V8-Dae" customClass="IsaoTextField" customModule="TextFieldEffects">
                                         <rect key="frame" x="0.0" y="124" width="240" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="eaj-vx-AXc"/>
@@ -71,7 +72,7 @@
                                         </constraints>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="email"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
                                                 <real key="value" value="0.69999999999999996"/>
@@ -84,7 +85,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ZC-Fj-1DL" customClass="IsaoTextField" customModule="TextFieldEffects">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ZC-Fj-1DL" customClass="IsaoTextField" customModule="TextFieldEffects">
                                         <rect key="frame" x="0.0" y="186" width="240" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="Wnj-XT-rT8"/>
@@ -116,6 +117,9 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginViewButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IKi-IS-D74"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5v-YB-gjO">
                                         <rect key="frame" x="69.999999999999986" y="0.0" width="13" height="38"/>
@@ -127,8 +131,11 @@
                                         <rect key="frame" x="113" y="0.0" width="60" height="38"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                         <state key="normal" title="Register">
-                                            <color key="titleColor" red="0.16078431369999999" green="0.50196078430000002" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerViewButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NDN-fm-SXx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -136,13 +143,13 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AgL-wr-Nul">
-                                <rect key="frame" x="61" y="48" width="306" height="113"/>
+                                <rect key="frame" x="82" y="86" width="250" height="72"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="gcH-Zs-IzX">
-                                        <rect key="frame" x="20" y="20" width="69" height="73"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="gcH-Zs-IzX">
+                                        <rect key="frame" x="0.0" y="0.0" width="90.666666666666671" height="72"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="diabuddy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhA-UC-QtG">
-                                        <rect key="frame" x="126" y="34" width="160" height="45"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="diabuddy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhA-UC-QtG">
+                                        <rect key="frame" x="90.666666666666643" y="0.0" width="159.33333333333337" height="72"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="38"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -164,6 +171,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginRegisterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yWE-4k-N6S"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -179,10 +189,166 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="5ZC-Fj-1DL" id="dpj-WM-KOC"/>
+                        <outlet property="emailTextField" destination="DhM-wZ-J2q" id="fRP-hy-fY0"/>
+                        <outlet property="loginRegisterButton" destination="Iy2-hP-Dae" id="07u-qy-yu5"/>
+                        <outlet property="loginViewButton" destination="TSq-D0-Lf8" id="Jtf-Zw-5YL"/>
+                        <outlet property="nameTextField" destination="KQt-pD-1RS" id="41F-BL-rUA"/>
+                        <outlet property="passwordTextField" destination="85i-V8-Dae" id="vc0-Rw-v88"/>
+                        <outlet property="registerViewButton" destination="PSL-2W-9h9" id="1dK-74-RPF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="31.884057971014496" y="36.684782608695656"/>
+        </scene>
+        <!--Add a reminder-->
+        <scene sceneID="N8m-jt-clT">
+            <objects>
+                <tableViewController title="Add a reminder" id="5Uf-gy-KVB" customClass="RemindersTableViewController" customModule="diabuddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="z6N-pr-X2p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reminderCell" rowHeight="98" id="8kZ-x4-gWC" customClass="ReminderTableViewCell" customModule="diabuddy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="98"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8kZ-x4-gWC" id="UOt-Z5-6bt">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="97.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breakfast" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvQ-IT-GWQ">
+                                            <rect key="frame" x="20" y="11" width="303" height="40.333333333333336"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="34"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bCZ-cW-Awc">
+                                            <rect key="frame" x="337" y="33" width="51" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="49" id="9Yf-AX-X23"/>
+                                                <constraint firstAttribute="height" constant="31" id="CFB-Vt-d65"/>
+                                            </constraints>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="7:00AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnR-TB-VHF">
+                                            <rect key="frame" x="20" y="60" width="80" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="eUj-ac-JLh"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gnR-TB-VHF" firstAttribute="top" secondItem="XvQ-IT-GWQ" secondAttribute="bottom" constant="8" id="2Or-OS-rpl"/>
+                                        <constraint firstItem="gnR-TB-VHF" firstAttribute="bottom" secondItem="UOt-Z5-6bt" secondAttribute="bottomMargin" id="BnU-26-jSi"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="bCZ-cW-Awc" secondAttribute="trailing" constant="8" id="Zyf-Fs-Bah"/>
+                                        <constraint firstItem="bCZ-cW-Awc" firstAttribute="centerY" secondItem="UOt-Z5-6bt" secondAttribute="centerY" id="skl-PB-gX1"/>
+                                        <constraint firstItem="bCZ-cW-Awc" firstAttribute="leading" secondItem="XvQ-IT-GWQ" secondAttribute="trailing" constant="14" id="wD9-2e-LlR"/>
+                                        <constraint firstItem="gnR-TB-VHF" firstAttribute="leading" secondItem="UOt-Z5-6bt" secondAttribute="leadingMargin" id="xAE-iw-fud"/>
+                                        <constraint firstItem="XvQ-IT-GWQ" firstAttribute="top" secondItem="UOt-Z5-6bt" secondAttribute="topMargin" id="xRj-k1-Pf9"/>
+                                        <constraint firstItem="XvQ-IT-GWQ" firstAttribute="leading" secondItem="UOt-Z5-6bt" secondAttribute="leadingMargin" id="xzP-wG-0Jd"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="enabledSwitch" destination="bCZ-cW-Awc" id="XfP-CG-cUB"/>
+                                    <outlet property="timeLabel" destination="gnR-TB-VHF" id="6ui-5d-NQe"/>
+                                    <outlet property="titleLabel" destination="XvQ-IT-GWQ" id="SQr-3n-IsU"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5Uf-gy-KVB" id="vQI-Au-2af"/>
+                            <outlet property="delegate" destination="5Uf-gy-KVB" id="Qjd-Na-ajw"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Insulin Reminders" id="eQU-aQ-XxO"/>
+                    <connections>
+                        <segue destination="EKf-Wk-46R" kind="show" id="nJs-ZX-fjd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ykk-KB-D6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2126.0869565217395" y="36.684782608695656"/>
+        </scene>
+        <!--Add a reminder-->
+        <scene sceneID="tln-yW-FbB">
+            <objects>
+                <viewController storyboardIdentifier="newReminder" title="Add a reminder" id="EKf-Wk-46R" customClass="NewReminderViewController" customModule="diabuddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vJp-5R-cqW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bVa-ge-YKM">
+                                <rect key="frame" x="0.0" y="116" width="414" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="Fih-F9-MWS"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="546634618.80610502">
+                                    <!--2018-04-28 18:56:58 +0000-->
+                                </date>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Reminder Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4j2-JD-PyI" customClass="IsaoTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="20" y="298" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9Ex-aV-Xr6"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                        <real key="value" value="0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                        <color key="value" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bVa-ge-YKM" firstAttribute="top" secondItem="zP5-VE-siE" secondAttribute="top" id="1rL-EB-MYm"/>
+                            <constraint firstItem="4j2-JD-PyI" firstAttribute="top" secondItem="bVa-ge-YKM" secondAttribute="bottom" constant="20" id="Epx-Dx-aNc"/>
+                            <constraint firstItem="zP5-VE-siE" firstAttribute="trailing" secondItem="4j2-JD-PyI" secondAttribute="trailing" constant="20" id="SWU-Ci-nxW"/>
+                            <constraint firstItem="bVa-ge-YKM" firstAttribute="leading" secondItem="zP5-VE-siE" secondAttribute="leading" id="YuB-GJ-C8p"/>
+                            <constraint firstItem="4j2-JD-PyI" firstAttribute="leading" secondItem="zP5-VE-siE" secondAttribute="leading" constant="20" id="rbt-BS-Vpd"/>
+                            <constraint firstItem="bVa-ge-YKM" firstAttribute="trailing" secondItem="zP5-VE-siE" secondAttribute="trailing" id="yps-rP-3Nm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zP5-VE-siE"/>
+                    </view>
+                    <connections>
+                        <outlet property="timePicker" destination="bVa-ge-YKM" id="Lya-Sg-QPS"/>
+                        <outlet property="titleTextField" destination="4j2-JD-PyI" id="nxz-HH-FF0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="509-7a-ZrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2979.7101449275365" y="36.684782608695656"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7x3-hA-Pew">
+            <objects>
+                <navigationController storyboardIdentifier="reminders" automaticallyAdjustsScrollViewInsets="NO" id="Rzo-tC-bkh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="yqw-Pa-ibD">
+                        <rect key="frame" x="0.0" y="20" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5Uf-gy-KVB" kind="relationship" relationship="rootViewController" id="f5a-kj-BAO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pk4-Q9-JNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1218.840579710145" y="36.684782608695656"/>
         </scene>
     </scenes>
     <resources>
