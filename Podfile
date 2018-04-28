@@ -9,5 +9,7 @@ target 'diabuddy' do
   pod 'Firebase/Core', :inhibit_warnings => true
   pod 'Firebase/Database’
   pod 'Firebase/Auth’
+  
+  pod 'TextFieldEffects'
 
 end

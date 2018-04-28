@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		271E9E002094BCEF001EA8DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271E9DFF2094BCEF001EA8DC /* LoginViewController.swift */; };
 		275F2DD72094BA16004B3AC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F2DD62094BA16004B3AC6 /* AppDelegate.swift */; };
-		275F2DD92094BA16004B3AC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F2DD82094BA16004B3AC6 /* ViewController.swift */; };
 		275F2DDC2094BA16004B3AC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275F2DDA2094BA16004B3AC6 /* Main.storyboard */; };
 		275F2DDE2094BA18004B3AC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 275F2DDD2094BA18004B3AC6 /* Assets.xcassets */; };
 		275F2DE12094BA18004B3AC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275F2DDF2094BA18004B3AC6 /* LaunchScreen.storyboard */; };
@@ -17,9 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		271E9DFF2094BCEF001EA8DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		275F2DD32094BA16004B3AC6 /* diabuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diabuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		275F2DD62094BA16004B3AC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		275F2DD82094BA16004B3AC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		275F2DDB2094BA16004B3AC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		275F2DDD2094BA18004B3AC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		275F2DE02094BA18004B3AC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +51,32 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		271E9DFD2094BCC7001EA8DC /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				275F2DD62094BA16004B3AC6 /* AppDelegate.swift */,
+				275F2DDD2094BA18004B3AC6 /* Assets.xcassets */,
+				275F2DDF2094BA18004B3AC6 /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		271E9DFE2094BCD6001EA8DC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				275F2DDA2094BA16004B3AC6 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		271E9E012094BCF4001EA8DC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				271E9DFF2094BCEF001EA8DC /* LoginViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		275F2DCA2094BA16004B3AC6 = {
 			isa = PBXGroup;
 			children = (
@@ -72,11 +98,9 @@
 		275F2DD52094BA16004B3AC6 /* diabuddy */ = {
 			isa = PBXGroup;
 			children = (
-				275F2DD62094BA16004B3AC6 /* AppDelegate.swift */,
-				275F2DD82094BA16004B3AC6 /* ViewController.swift */,
-				275F2DDA2094BA16004B3AC6 /* Main.storyboard */,
-				275F2DDD2094BA18004B3AC6 /* Assets.xcassets */,
-				275F2DDF2094BA18004B3AC6 /* LaunchScreen.storyboard */,
+				271E9E012094BCF4001EA8DC /* View Controllers */,
+				271E9DFE2094BCD6001EA8DC /* Views */,
+				271E9DFD2094BCC7001EA8DC /* Support */,
 				275F2DE22094BA18004B3AC6 /* Info.plist */,
 				275F2DE82094BAAA004B3AC6 /* GoogleService-Info.plist */,
 			);
@@ -188,6 +212,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-diabuddy/Pods-diabuddy-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -195,6 +220,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -210,7 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				275F2DD92094BA16004B3AC6 /* ViewController.swift in Sources */,
+				271E9E002094BCEF001EA8DC /* LoginViewController.swift in Sources */,
 				275F2DD72094BA16004B3AC6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
