@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
+import Cheers
 
 private let reuseIdentifier = "insulinCell"
 
@@ -19,6 +21,8 @@ class HomeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkIfUserIsLoggedIn()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(handleLogout))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,17 +33,22 @@ class HomeCollectionViewController: UICollectionViewController {
     
     func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser?.uid == nil {
-            do {
-                try Auth.auth().signOut()
-            } catch let logoutError {
-                print(logoutError)
-            }
-            let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "loginVC") as! LoginViewController
-            self.present(loginVC, animated: true, completion: nil)
+            handleLogout()
         } else {
             isLoggedIn = true
         }
     }
+    
+    @objc func handleLogout() {
+        do {
+            try Auth.auth().signOut()
+        } catch let logoutError {
+            print(logoutError)
+        }
+        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "loginVC") as! LoginViewController
+        self.present(loginVC, animated: true, completion: nil)
+    }
+    
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -66,7 +75,7 @@ extension HomeCollectionViewController: InsulinCellDelegate {
     
     func didTapComplete() {
         completeVC = storyboard?.instantiateViewController(withIdentifier: "completeVC") as? CompleteViewController
-        completeVC!.view.frame = CGRect(x: (UIScreen.main.bounds.size.width / 2) - 170, y: (UIScreen.main.bounds.size.height / 2) - 210, width: 340, height: 420)
+        completeVC!.view.frame = CGRect(x: (UIScreen.main.bounds.size.width / 2) - 170, y: (UIScreen.main.bounds.size.height / 2) - 210, width: 340, height: 480)
         completeVC!.delegate = self
         completeVC!.view.layer.cornerRadius = 18
         completeVC!.view.layer.borderColor = UIColor.darkGray.cgColor
@@ -89,5 +98,26 @@ extension HomeCollectionViewController: CompleteDelegate {
         }
     }
     
-    
+    func didComplete() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .allowUserInteraction, animations: {
+            self.completeVC!.view.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+        }) { (completed) in
+            self.completeVC!.view.removeFromSuperview()
+            
+            // Create the view
+            let cheerView = CheerView()
+            cheerView.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: 0)
+            self.view.addSubview(cheerView)
+            
+            // Configure
+            cheerView.config.particle = .confetti
+            // Start
+            cheerView.start()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+                cheerView.stop()
+                self.collectionView?.reloadData()
+            })
+        }
+    }
 }

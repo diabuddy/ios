@@ -281,7 +281,7 @@
                                                 <constraint firstAttribute="height" constant="30" id="SI3-JL-aBb"/>
                                             </constraints>
                                         </stackView>
-                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Sq1-jE-Hc6">
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Sq1-jE-Hc6">
                                             <rect key="frame" x="20" y="172" width="231" height="9"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="8" id="io8-SI-eld"/>
@@ -349,7 +349,7 @@ completed</string>
             <objects>
                 <viewController storyboardIdentifier="completeVC" modalPresentationStyle="overCurrentContext" id="JMP-0s-q2O" customClass="CompleteViewController" customModule="diabuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bYU-GK-lXl">
-                        <rect key="frame" x="0.0" y="0.0" width="340" height="420"/>
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Reminder to Complete" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgh-7a-Pxm">
@@ -363,7 +363,7 @@ completed</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fcb-io-UQY">
-                                <rect key="frame" x="30" y="88.666666666666686" width="280" height="243"/>
+                                <rect key="frame" x="30" y="129" width="280" height="243"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="243" id="RVw-OO-IgN"/>
@@ -371,7 +371,7 @@ completed</string>
                                 </constraints>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RvO-2n-her">
-                                <rect key="frame" x="82" y="339" width="177" height="30"/>
+                                <rect key="frame" x="82" y="399" width="177" height="30"/>
                                 <color key="backgroundColor" red="0.043137254899999998" green="0.90980392160000001" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="PGb-ax-lNA"/>
@@ -386,7 +386,7 @@ completed</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GB8-CO-2mF">
-                                <rect key="frame" x="143" y="377" width="54" height="30"/>
+                                <rect key="frame" x="143" y="437" width="54" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QGm-rz-LS8"/>
                                     <constraint firstAttribute="width" constant="54" id="qlB-8V-flo"/>
@@ -396,6 +396,24 @@ completed</string>
                                     <action selector="dismissButtonTapped:" destination="JMP-0s-q2O" eventType="touchUpInside" id="O3E-k6-67a"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="aIx-QZ-fgq">
+                                <rect key="frame" x="107" y="83" width="115.33333333333333" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Level" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="suI-ae-wlB">
+                                        <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="mmol/L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfm-S3-cOH">
+                                        <rect key="frame" x="57.666666666666671" y="0.0" width="57.666666666666671" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -406,14 +424,15 @@ completed</string>
                             <constraint firstItem="MAq-5S-od3" firstAttribute="bottom" secondItem="RvO-2n-her" secondAttribute="bottom" constant="51" id="Xdd-qh-S0O"/>
                             <constraint firstItem="kgh-7a-Pxm" firstAttribute="centerX" secondItem="MAq-5S-od3" secondAttribute="centerX" id="dq3-OF-Fa6"/>
                             <constraint firstItem="GB8-CO-2mF" firstAttribute="top" secondItem="RvO-2n-her" secondAttribute="bottom" constant="8" id="qnX-hB-Mfp"/>
-                            <constraint firstItem="kgh-7a-Pxm" firstAttribute="top" secondItem="MAq-5S-od3" secondAttribute="top" constant="20" id="xhb-my-DF7"/>
+                            <constraint firstItem="kgh-7a-Pxm" firstAttribute="top" secondItem="MAq-5S-od3" secondAttribute="top" id="xhb-my-DF7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MAq-5S-od3"/>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="340" height="420"/>
-                    <size key="freeformSize" width="340" height="420"/>
+                    <size key="freeformSize" width="340" height="480"/>
                     <connections>
                         <outlet property="completeButton" destination="RvO-2n-her" id="6LD-Nh-4Ku"/>
+                        <outlet property="levelTextField" destination="suI-ae-wlB" id="wHn-p1-15k"/>
                         <outlet property="remindersTableView" destination="fcb-io-UQY" id="lWR-rg-mS5"/>
                     </connections>
                 </viewController>

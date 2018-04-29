@@ -33,6 +33,8 @@ class InsulinCollectionViewCell: UICollectionViewCell {
         fetchReminders { (reminderz) in
             self.nextReminderLabel.text = self.getNextReminderString(reminders: reminderz!)
         }
+        
+        updateProgressBar()
     }
     
     @IBAction func viewAllRemindersTapped(_ sender: UIButton) {
@@ -79,14 +81,46 @@ class InsulinCollectionViewCell: UICollectionViewCell {
                 let title = reminder["title"]! as! String
                 let time = reminder["time"]! as! Int
                 let enabled = (reminder["enabled"]! as! Int == 1) ? true : false
-                let completed = (reminder["completed"]! as! Int == 1) ? true : false
+                let completed = reminder["completed"]! as! Bool
                 
-                let newReminder = Reminder(title: title, time: time, enabled: enabled, completed: completed)
-                reminders.append(newReminder)
-                reminders.sort(by: {$0.time < $1.time})
+                if !completed {
+                    let newReminder = Reminder(title: title, time: time, enabled: enabled, completed: completed)
+                    reminders.append(newReminder)
+                    reminders.sort(by: {$0.time < $1.time})
+                }
             }
             completion(reminders)
         }, withCancel: nil)
+    }
+    
+    func getBarValues(completion: @escaping (_ percent: Double) -> ()) {
+        var totalCount = 0.0
+        var completedCount = 0.0
+        let uid = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference().child("users").child(uid!).child("insulinReminders")
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            let enumerator = snapshot.children
+            while let child = enumerator.nextObject() as? DataSnapshot {
+                guard let reminder = child.value as? NSDictionary else {
+                    return
+                }
+                let completed = reminder["completed"]! as! Bool
+                totalCount += 1
+                if completed {
+                    completedCount += 1
+                }
+            }
+            completion(Double(completedCount) / Double(totalCount))
+        }, withCancel: nil)
+    }
+    
+    func updateProgressBar() {
+        getBarValues { (progress) in
+            UIView.animate(withDuration: 1, animations: { () -> Void in
+                self.progressBar.setProgress(Float(progress), animated: true)
+            })
+        }
     }
     
 }

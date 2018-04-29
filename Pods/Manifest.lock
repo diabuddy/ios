@@ -1,4 +1,5 @@
 PODS:
+  - Cheers (2.0.0)
   - Firebase/Auth (4.7.0):
     - Firebase/Core
     - FirebaseAuth (= 4.4.0)
@@ -44,6 +45,7 @@ PODS:
   - TextFieldEffects (1.4.0)
 
 DEPENDENCIES:
+  - Cheers
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -51,6 +53,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Cheers
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -64,6 +67,7 @@ SPEC REPOS:
     - TextFieldEffects
 
 SPEC CHECKSUMS:
+  Cheers: bacb4a95f04cf0fa25ee7f78e900c71eca8673ba
   Firebase: dbfb98ccec2dcfcd21ab9cc1b4981a3f3c8c5e26
   FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
   FirebaseAuth: cdeee95b528958dbb7dcf220ad0fb804d3a284b0
@@ -76,6 +80,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
 
-PODFILE CHECKSUM: c0b5a76ef737e6b396018c052cef91f21bacfaf2
+PODFILE CHECKSUM: 80d357afb3920fd273be5dc7d3730eabf97142a7
 
 COCOAPODS: 1.5.0

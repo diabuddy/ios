@@ -11,5 +11,6 @@ target 'diabuddy' do
   pod 'Firebase/Auth’
   
   pod 'TextFieldEffects'
+  pod 'Cheers'
   
 end
