@@ -45,8 +45,9 @@ class RemindersTableViewController: UITableViewController {
                 let title = reminder["title"]! as! String
                 let time = reminder["time"]! as! Int
                 let enabled = (reminder["enabled"]! as! Int == 1) ? true : false
+                let completed = (reminder["completed"]! as! Int == 1) ? true : false
                 
-                let newReminder = Reminder(title: title, time: time, enabled: enabled)
+                let newReminder = Reminder(title: title, time: time, enabled: enabled, completed: completed)
                 self.reminders.append(newReminder)
                 self.reminders.sort(by: {$0.time < $1.time})
             }
@@ -60,7 +61,7 @@ class RemindersTableViewController: UITableViewController {
     }
     
     @objc func doneButtonTapped() {
-        print("done")
+        dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Table view data source

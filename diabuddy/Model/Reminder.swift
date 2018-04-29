@@ -12,4 +12,5 @@ struct Reminder {
     let title: String
     let time: Int
     let enabled: Bool
+    let completed: Bool
 }

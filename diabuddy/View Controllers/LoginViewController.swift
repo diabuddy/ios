@@ -74,7 +74,7 @@ class LoginViewController: UIViewController {
                     return
                 }
                 
-                //Present home view
+                self.dismiss(animated: true, completion: nil)
             }
         } else {
             // register
@@ -111,21 +111,20 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            let breakfast = Reminder(title: "Breakfast", time: 420, enabled: true)
-            let lunch = Reminder(title: "Lunch", time: 720, enabled: true)
-            let dinner = Reminder(title: "Dinner", time: 1020, enabled: true)
-            let bedtime = Reminder(title: "Bedtime", time: 1320, enabled: true)
+            let breakfast = Reminder(title: "Breakfast", time: 420, enabled: true, completed: false)
+            let lunch = Reminder(title: "Lunch", time: 720, enabled: true, completed: false)
+            let dinner = Reminder(title: "Dinner", time: 1020, enabled: true, completed: false)
+            let bedtime = Reminder(title: "Bedtime", time: 1320, enabled: true, completed: false)
             let defaultReminders = [breakfast, lunch, dinner, bedtime]
             
             for reminder in defaultReminders {
                 let remindersRef = userRef.child("insulinReminders").child(reminder.title.lowercased())
                 
-                let event = ["title": reminder.title, "time": reminder.time, "enabled": reminder.enabled] as [String : Any]
+                let event = ["title": reminder.title, "time": reminder.time, "enabled": reminder.enabled, "completed": reminder.completed] as [String : Any]
                 remindersRef.updateChildValues(event)
             }
             
-            let remindersViewController = self.storyboard?.instantiateViewController(withIdentifier: "reminders") as! UINavigationController
-            self.present(remindersViewController, animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
             
         }
     }

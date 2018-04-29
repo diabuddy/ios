@@ -33,8 +33,8 @@ class NewReminderViewController: UIViewController {
     @objc func save() {
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference().child("users").child(uid!).child("insulinReminders").child(titleTextField.text!.lowercased())
-        let reminder = Reminder(title: titleTextField.text!, time: convertTime(), enabled: true)
-        let event = ["title": reminder.title, "time": reminder.time, "enabled": reminder.enabled] as [String : Any]
+        let reminder = Reminder(title: titleTextField.text!, time: convertTime(), enabled: true, completed: false)
+        let event = ["title": reminder.title, "time": reminder.time, "enabled": reminder.enabled, "completed": reminder.completed] as [String : Any]
         ref.updateChildValues(event) { (err, ref) in
             self.navigationController?.popViewController(animated: true)
         }
