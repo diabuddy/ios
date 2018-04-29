@@ -12,6 +12,8 @@ import FirebaseDatabase
 import Cheers
 
 private let reuseIdentifier = "insulinCell"
+private let calculateReuse = "calculateCell"
+private let scoreReuse = "scoreCell"
 
 class HomeCollectionViewController: UICollectionViewController {
     
@@ -21,6 +23,7 @@ class HomeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkIfUserIsLoggedIn()
+        hideKeyboardWhenTappedAround()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(handleLogout))
     }
@@ -56,14 +59,25 @@ class HomeCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return isLoggedIn ? 1 : 0
+        return isLoggedIn ? 3 : 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! InsulinCollectionViewCell
-        cell.delegate = self
-        cell.formatCell()
-        return cell
+        if indexPath.row == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! InsulinCollectionViewCell
+            cell.delegate = self
+            cell.formatCell()
+            return cell
+        } else if indexPath.row == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: calculateReuse, for: indexPath) as! CalculateCollectionViewCell
+            cell.delegate = self
+            cell.formatCell()
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: scoreReuse, for: indexPath) as! ScoreCollectionViewCell
+            cell.formatCell()
+            return cell
+        }
     }
 }
 
@@ -85,6 +99,42 @@ extension HomeCollectionViewController: InsulinCellDelegate {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: .allowUserInteraction, animations: {
             self.completeVC!.view.transform = CGAffineTransform(scaleX: 1, y: 1)
         }, completion: nil)
+    }
+}
+
+extension HomeCollectionViewController: CalculateDelegate {
+    func didRequestToCalculate(grams: Int) {
+        let dosage = (grams % 15 == 0) ? grams / 15 : (grams / 15) + 1
+        let alert = UIAlertController(title: "Calculate CHO Insulin Dose", message: "Assuming your Insulin CHO ratio is 1:15, your recommended dosage is \(dosage) units of rapid acting Insulin to cover the carbohydrates", preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Save", style: .default) { (alert) in
+            let dateFormater = DateFormatter()
+            dateFormater.dateFormat = "MM-dd-yyyy"
+            let todayDate = dateFormater.string(from: Date())
+            
+            let uid = Auth.auth().currentUser?.uid
+            let ref = Database.database().reference().child("users").child(uid!).child("history").child(todayDate).child(UUID().uuidString)
+            let values = ["data": dosage, "eventType": "insulinUpdate", "timestamp": convertTime()] as [String : Any]
+            ref.updateChildValues(values)
+            
+            // Create the view
+            let cheerView = CheerView()
+            cheerView.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: 0)
+            self.view.addSubview(cheerView)
+            
+            // Configure
+            cheerView.config.particle = .confetti
+            // Start
+            cheerView.start()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+                cheerView.stop()
+                self.collectionView?.reloadData()
+            })
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 

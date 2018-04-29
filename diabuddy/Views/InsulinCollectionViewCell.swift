@@ -20,6 +20,7 @@ class InsulinCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var allRemindersButton: UIButton!
     @IBOutlet weak var completeReminderButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var completionLabel: UILabel!
     
     weak var delegate: InsulinCellDelegate?
     
@@ -111,6 +112,7 @@ class InsulinCollectionViewCell: UICollectionViewCell {
                     completedCount += 1
                 }
             }
+            self.completionLabel.text = "\(Int(completedCount))/\(Int(totalCount))\ncompleted"
             completion(Double(completedCount) / Double(totalCount))
         }, withCancel: nil)
     }

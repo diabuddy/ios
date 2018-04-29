@@ -13,7 +13,9 @@
 		275F2DDE2094BA18004B3AC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 275F2DDD2094BA18004B3AC6 /* Assets.xcassets */; };
 		275F2DE12094BA18004B3AC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275F2DDF2094BA18004B3AC6 /* LaunchScreen.storyboard */; };
 		275F2DE92094BAAA004B3AC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 275F2DE82094BAAA004B3AC6 /* GoogleService-Info.plist */; };
+		279E9A772095863E007992A0 /* CalculateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E9A762095863E007992A0 /* CalculateCollectionViewCell.swift */; };
 		27B3BCC42094FCB500409E6E /* NewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B3BCC32094FCB500409E6E /* NewReminderViewController.swift */; };
+		27C052232095A7AD001343FB /* ScoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C052222095A7AD001343FB /* ScoreCollectionViewCell.swift */; };
 		27C2F4792094E29500DE69EE /* RemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2F4782094E29500DE69EE /* RemindersTableViewController.swift */; };
 		27C2F47B2094E32400DE69EE /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2F47A2094E32400DE69EE /* ReminderTableViewCell.swift */; };
 		27C2F47D2094E49100DE69EE /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2F47C2094E49100DE69EE /* Reminder.swift */; };
@@ -32,7 +34,9 @@
 		275F2DE02094BA18004B3AC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		275F2DE22094BA18004B3AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		275F2DE82094BAAA004B3AC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		279E9A762095863E007992A0 /* CalculateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateCollectionViewCell.swift; sourceTree = "<group>"; };
 		27B3BCC32094FCB500409E6E /* NewReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderViewController.swift; sourceTree = "<group>"; };
+		27C052222095A7AD001343FB /* ScoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		27C2F4782094E29500DE69EE /* RemindersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableViewController.swift; sourceTree = "<group>"; };
 		27C2F47A2094E32400DE69EE /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		27C2F47C2094E49100DE69EE /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 				275F2DDA2094BA16004B3AC6 /* Main.storyboard */,
 				27C2F47A2094E32400DE69EE /* ReminderTableViewCell.swift */,
 				27DC53332095183B00E3D1D4 /* InsulinCollectionViewCell.swift */,
+				279E9A762095863E007992A0 /* CalculateCollectionViewCell.swift */,
+				27C052222095A7AD001343FB /* ScoreCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -270,10 +276,12 @@
 				271E9E002094BCEF001EA8DC /* LoginViewController.swift in Sources */,
 				27B3BCC42094FCB500409E6E /* NewReminderViewController.swift in Sources */,
 				27C2F4792094E29500DE69EE /* RemindersTableViewController.swift in Sources */,
+				279E9A772095863E007992A0 /* CalculateCollectionViewCell.swift in Sources */,
 				27DC53342095183B00E3D1D4 /* InsulinCollectionViewCell.swift in Sources */,
 				275F2DD72094BA16004B3AC6 /* AppDelegate.swift in Sources */,
 				27DC53362095451B00E3D1D4 /* CompleteViewController.swift in Sources */,
 				27DC5332209517EC00E3D1D4 /* HomeCollectionViewController.swift in Sources */,
+				27C052232095A7AD001343FB /* ScoreCollectionViewCell.swift in Sources */,
 				27C2F47B2094E32400DE69EE /* ReminderTableViewCell.swift in Sources */,
 				27C2F47D2094E49100DE69EE /* Reminder.swift in Sources */,
 			);
@@ -423,7 +431,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BNS58ZR5ZP;
 				INFOPLIST_FILE = diabuddy/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = matschmid.diabuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -439,7 +450,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BNS58ZR5ZP;
 				INFOPLIST_FILE = diabuddy/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = matschmid.diabuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

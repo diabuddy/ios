@@ -136,13 +136,6 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    func convertTime() -> Int {
-        let hour = Calendar.current.component(.hour, from: Date())
-        let minutes = Calendar.current.component(.minute, from: Date())
-        
-        return (hour * 60) + minutes
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reminders.count
     }
@@ -165,5 +158,11 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
     }
+}
+
+func convertTime() -> Int {
+    let hour = Calendar.current.component(.hour, from: Date())
+    let minutes = Calendar.current.component(.minute, from: Date())
     
+    return (hour * 60) + minutes
 }
